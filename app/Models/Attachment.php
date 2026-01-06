@@ -44,7 +44,7 @@ class Attachment extends Model
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn () => Storage::disk($this->disk)->url($this->path)
+            get: fn () => route('attachments.show', $this->id)
         );
     }
 

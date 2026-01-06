@@ -28,6 +28,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Attachments
     Route::post('/bugs/{bug}/attachments', [AttachmentController::class, 'store'])->name('attachments.store');
+    Route::get('/attachments/{attachment}', [AttachmentController::class, 'show'])->name('attachments.show');
     Route::delete('/attachments/{attachment}', [AttachmentController::class, 'destroy'])->name('attachments.destroy');
     Route::get('/attachments/{attachment}/download', [AttachmentController::class, 'download'])->name('attachments.download');
 

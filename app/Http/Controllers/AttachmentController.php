@@ -58,6 +58,22 @@ class AttachmentController extends Controller
         return back()->with('success', 'Attachment deleted successfully.');
     }
 
+    public function show(Attachment $attachment): StreamedResponse
+    {
+        $disk = Storage::disk($attachment->disk);
+
+        if (! $disk->exists($attachment->path)) {
+            abort(404);
+        }
+
+        return response()->streamDownload(function () use ($disk, $attachment) {
+            echo $disk->get($attachment->path);
+        }, $attachment->original_filename, [
+            'Content-Type' => $attachment->mime_type,
+            'Content-Disposition' => 'inline; filename="'.$attachment->original_filename.'"',
+        ]);
+    }
+
     public function download(Attachment $attachment): StreamedResponse
     {
         return Storage::disk($attachment->disk)->download(
