@@ -69,26 +69,29 @@ const toggleTag = (tagId) => {
             <form @submit.prevent="submit" class="max-w-xl space-y-6">
                 <div>
                     <InputLabel for="title" value="標題" />
-                    <TextInput
-                        id="title"
-                        v-model="form.title"
-                        type="text"
-                        class="mt-1 block w-full"
-                        required
-                        autofocus
-                    />
+                    <div class="mt-1 border-b border-gray-200 focus-within:border-gray-900 transition-colors">
+                        <TextInput
+                            id="title"
+                            v-model="form.title"
+                            type="text"
+                            class="block w-full"
+                            required
+                            autofocus
+                        />
+                    </div>
                     <InputError :message="form.errors.title" class="mt-2" />
                 </div>
 
                 <div>
                     <InputLabel for="description" value="描述" />
-                    <TextArea
-                        id="description"
-                        v-model="form.description"
-                        class="mt-1"
-                        :rows="6"
-                        required
-                    />
+                    <div class="mt-1 border-b border-gray-200 focus-within:border-gray-900 transition-colors">
+                        <TextArea
+                            id="description"
+                            v-model="form.description"
+                            :rows="6"
+                            required
+                        />
+                    </div>
                     <InputError :message="form.errors.description" class="mt-2" />
                 </div>
 

@@ -70,7 +70,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div ref="dropdownRef" class="relative">
+    <div ref="dropdownRef" class="relative border-b border-gray-200 focus-within:border-gray-900 transition-colors">
         <button
             type="button"
             @click="isOpen = !isOpen"

@@ -194,11 +194,13 @@ const activityMessage = (activity) => {
                             <!-- Comments -->
                             <div v-if="activeTab === 'comments'">
                                 <form @submit.prevent="submitComment" class="mb-6">
-                                    <TextArea
-                                        v-model="commentForm.body"
-                                        placeholder="新增留言..."
-                                        :rows="3"
-                                    />
+                                    <div class="border-b border-gray-200 focus-within:border-gray-900 transition-colors">
+                                        <TextArea
+                                            v-model="commentForm.body"
+                                            placeholder="新增留言..."
+                                            :rows="3"
+                                        />
+                                    </div>
                                     <div class="mt-2 flex items-center justify-between">
                                         <div class="flex items-center gap-2">
                                             <input

@@ -136,14 +136,16 @@ const predefinedColors = [
                 <div class="mt-6 space-y-4">
                     <div>
                         <InputLabel for="name" value="名稱" />
-                        <TextInput
-                            id="name"
-                            v-model="form.name"
-                            type="text"
-                            class="mt-1 block w-full"
-                            required
-                            autofocus
-                        />
+                        <div class="mt-1 border-b border-gray-200 focus-within:border-gray-900 transition-colors">
+                            <TextInput
+                                id="name"
+                                v-model="form.name"
+                                type="text"
+                                class="block w-full"
+                                required
+                                autofocus
+                            />
+                        </div>
                         <InputError :message="form.errors.name" class="mt-2" />
                     </div>
 

@@ -80,12 +80,14 @@ watch(localFilters, applyFilters, { deep: true });
         <div class="py-8">
             <!-- Filters -->
             <div class="flex flex-wrap items-center gap-4 border-b border-gray-100 pb-6">
-                <input
-                    v-model="localFilters.search"
-                    type="text"
-                    placeholder="搜尋..."
-                    class="w-48 border-0 bg-transparent px-0 py-2 text-sm focus:outline-none focus:ring-0"
-                />
+                <div class="w-48 border-b border-gray-200 focus-within:border-gray-900 transition-colors">
+                    <input
+                        v-model="localFilters.search"
+                        type="text"
+                        placeholder="搜尋..."
+                        class="w-full border-0 bg-transparent px-0 py-2 text-sm focus:outline-none focus:ring-0"
+                    />
+                </div>
                 <div class="w-32">
                     <Select
                         v-model="localFilters.status"
