@@ -23,7 +23,9 @@ class Tag extends Model
 
         static::creating(function (Tag $tag) {
             if (empty($tag->slug)) {
-                $tag->slug = Str::slug($tag->name);
+                $slug = Str::slug($tag->name);
+                // 中文名稱會產生空 slug，使用隨機字串
+                $tag->slug = $slug ?: Str::random(8);
             }
         });
     }
